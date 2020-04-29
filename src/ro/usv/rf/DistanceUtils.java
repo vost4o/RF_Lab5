@@ -1,21 +1,20 @@
 package ro.usv.rf;
 
 public class DistanceUtils {
-
-	public static double euclidianDistanceGeneralized(Location l1, Location l2) {
+	
+	/**
+	 * Calculate the euclidian distance between two patterns
+	 * @param p1
+	 * @param p2
+	 * @return
+	 */
+	protected static double euclidianDistance(String[] p1, String[] p2, int patternValuesCount) {
 		double distance = 0;
-		
-		// Calculate the distance between two patterns
-		double x1 = l1.getxCoordinate();
-		double y1 = l1.getyCoordinate();
-		
-		double x2 = l2.getxCoordinate();
-		double y2 = l2.getyCoordinate();
-		
-		distance += Math.pow(x1 - y1, 2);
-		distance += Math.pow(x2 - y2, 2);
-		
-		// Get the square root
+		for(int i = 0; i < patternValuesCount; ++i) {
+			double pOneValue = Double.valueOf(p1[i]);
+			double pTwoValue = Double.valueOf(p2[i]);
+			distance += Math.pow(pOneValue - pTwoValue, 2);
+		}
 		distance = Math.sqrt(distance);
 		
 		return distance;
