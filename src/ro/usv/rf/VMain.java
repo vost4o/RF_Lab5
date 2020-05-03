@@ -1,10 +1,5 @@
 package ro.usv.rf;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.PriorityQueue;
-import java.util.Queue;
-
 public class VMain {
 	public static void main(String[] args) {
 		try {
@@ -27,7 +22,7 @@ public class VMain {
 					newEvalSet[i][j] = evalSet[i][j];
 				}
 				newEvalSet[i][newEvalSet.length - 1] = Classificators.performKNNClassification(evalSet[i], locations,
-						distances[i], 21);
+						distances[i], 9);
 			}
 
 			FileUtils.writeLearningSetToFile("calcEvalSet.csv", newEvalSet);
